@@ -1,0 +1,456 @@
+
+
+/* Layout definition */
+#maingrid {
+    			display: grid;
+grid-template-rows:[header] 10vh [viewbar] 30vh  [content1] auto [resizearea] auto [content3] auto [footer] 10vh;
+			grid-template-columns: [left] 1fr [center] 0.25fr [right] 1fr ;
+			grid-template-areas:
+				" header-l space0 header-r"
+        " viewbar viewbar viewbar"
+				" left space1 right "
+        " left2 space2 right2 "
+        " center center center"
+        " footer footer footer";
+}
+
+/* heading background picture */
+  .picture {
+    grid-area: header-l / header-l  / viewbar / header-r  ;
+    background-image: url("header.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+
+}
+
+/* elements of upper bar */
+  #nav {
+    grid-area: header-l / header-l / space0 / space0;
+    margin-top: 2% ;
+    margin-bottom: 2%;
+    margin-right: 12%;
+    margin-left: 6%;
+}
+
+#log-in {
+		grid-area: space0 / space0 / header-r / header-r;
+    text-align: right;
+    margin-top: 2% ;
+    margin-bottom: 1%;
+    margin-right: 3.5%;
+    margin-left: 12%;
+
+}
+
+
+
+/* definition of upper panel elements used at upper bar */
+  .navbutton {
+    background-color: rgb(244,160,0, 0.7);
+    border: #F4B421;
+    border-style: solid;
+    border-width: 0.3vw;
+    color: white;
+    padding: 1.5% 3%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2vh;
+    font-family:"Segoe UI";
+    overflow: auto;
+}
+
+.loginform{
+  background-color: rgb(244,160,0, 0.7);
+  border: #F4B421;
+  border-style: solid;
+  border-width: 0.3vw;
+}
+
+.loginbutton {
+  background-color: rgb(35, 38, 29, 0.7);
+  border: #23261D;
+  padding: 0.5vh 1vw;
+  border-style: solid;
+  border-width: 0.3vw;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vh;
+  font-family:"Segoe UI";
+  cursor: pointer;
+}
+
+.loginfield {
+  background-color: rgb(35, 38, 29, 0.7);
+  border: #23261D;
+  padding: 0.5vh 0;
+  border-style: solid;
+  border-width: 0.3vw;
+  color: white;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vh;
+  font-family:"Segoe UI";
+}
+
+.logintext {
+  color: white;
+  padding: 0.5vh 0;
+  font-family:"Segoe UI";
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2vh;
+}
+
+#log-in p {
+  color: red;
+  padding: 0.5vh 0;
+  font-family:"Segoe UI";
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 3vh;
+}
+
+
+
+  /* viewbar, ergo placement of logo */
+#viewbar {
+		grid-area: viewbar;
+    text-align: center;
+    margin: auto;
+    color: black;
+    font-size: 2vw;
+    font-family:"Segoe UI";
+  }
+  #viewbar b {
+
+      color: rgba(255,0,0,0.8);
+    }
+
+
+
+  /* ------------ article sections ------------ */
+
+    /* main body of left box (offers) in configuration for large screen */
+    @media (min-width:800px) {
+#offers {
+		grid-area: left / left / space1 / space1;
+    font-size: 1vw;
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.3vw;
+    padding: 1% 1%;
+    margin-top: 2% ;
+    margin-bottom: 2%;
+    margin-right: 12%;
+    margin-left: 6%;
+}
+}
+    /* configuration of position in case of small screen */
+@media (max-width:800px) {
+#offers {
+grid-area: left / left / right / right;
+font-size: 1vw;
+border: #23261D;
+border-style: solid;
+border-width: 0.3vw;
+padding: 1% 1%;
+margin-top: 2% ;
+margin-bottom: 2%;
+margin-right: 2%;
+margin-left: 3.3%;
+}
+}
+/* heading of left box */
+  #offers h2 {
+    font-size: 3vh;
+    margin-top: 0% ;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
+    text-align: left;
+    font-family:"Segoe UI";
+}
+/* text of left box */
+  #offers p {
+    background-color: rgb(244,180,33);
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.3vw;
+    color: white;
+    font-size: 1.9vh;
+    padding: 1.4% 1.4%;
+    margin-top: 2% ;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
+    text-align: left;
+    font-family:"Segoe UI";
+    font-weight: bold;
+  }
+
+
+    /* function to move right box(JSONoffers) bellow left one (Offers) if screen is small */
+@media (min-width:800px) {
+    /* configuration of position in case of large screen */
+#JSONoffers {
+		grid-area: space1 / space1 / right / right;
+    font-size: 1vw;
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.3vw;
+    padding: 1% 1%;
+    margin-top: 2% ;
+    margin-bottom: 2%;
+    margin-right: 3.5%;
+    margin-left: 12%;
+    overflow: auto;
+    float: right;
+}
+}
+
+
+    /* function to move right box(JSONoffers) bellow left one (Offers) if screen is small */
+@media (max-width:800px) {
+
+    /* configuration of position in case of small screen */
+#JSONoffers {
+		grid-area: left2 / left2 / right2 / right2;
+    font-size: 1vw;
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.3vw;
+    padding: 1% 1%;
+    margin-top: 2% ;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    margin-left: 3.3%;
+    overflow: auto;
+    float: right;
+}
+}
+    /* heading for right block (JSONoffers) */
+  #JSONoffers h2 {
+    font-size: 3vh;
+    margin-top: 0% ;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
+    text-align: left;
+    font-family:"Segoe UI";
+}
+/* text of left box(JSONoffers) */
+  #JSONoffers p {
+    background-color: rgb(244,180,33);
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.3vw;
+    color: white;
+    font-size: 1.9vh;
+    padding: 1.4% 1.4%;
+    margin-top: 2% ;
+    margin-bottom: 2%;
+    margin-right: 2%;
+    margin-left: 2%;
+    text-align: left;
+    font-family:"Segoe UI";
+    font-weight: bold;
+}
+/* definition of buttons used at "article boxes" */
+.articlebutton a {
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.3vw;
+    color: white;
+    padding: 1.5% 3%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2vh;
+    font-family:"Segoe UI";
+    overflow: auto;
+    margin-right: 2%;
+    margin-left: 2%;
+    width: 10vw;
+  }
+.articlebutton .goback{
+  background-color: rgb(35, 38, 29, 0.7);
+
+    }
+    /* box with list of events */
+  #center {
+		grid-area: center;
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.3vw;
+    padding: 0.5% 0.5%;
+    text-align: center;
+    margin-top: 2% ;
+    margin-right: 2%;
+    margin-left: 3.3%;
+    margin-bottom: 3% ;
+}
+    /* heading for list of events */
+  #center h2 {
+    font-size: 3vh;
+    margin-top: 0% ;
+    margin-bottom: 1%;
+    margin-right: 2%;
+    margin-left: 2%;
+    text-align: center;
+    font-family:"Segoe UI";
+  }
+
+  #center h3 {
+    font-size: 2vh;
+    margin-top: 0% ;
+    margin-bottom: 1%;
+    margin-right: 2%;
+    margin-left: 2%;
+    text-align: center;
+    font-family:"Segoe UI";
+  }
+
+
+    /* text configuration of list of events */
+  #center p {
+    font-family:"Segoe UI";
+    background-color: rgb(35, 38, 29, 0.7);
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.3vw;
+    color: white;
+    font-size: 1.9vh;
+    padding: 0.7% 0.7%;
+    margin-top: 1% ;
+    margin-bottom: 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+    text-align: left;
+  }
+
+
+
+  #center table {
+    font-family:"Segoe UI";
+    background-color: rgb(35, 38, 29, 0.7);
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.3vw;
+    color: white;
+    font-size: 1.9vh;
+    padding: 0.7% 0.7%;
+    margin-top: 1% ;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  th, td {
+    border-bottom: 2px solid rgb(255, 255, 255, 0.2);
+  }
+  tr:hover {background-color: rgb(35, 38, 29, 0.3);}
+
+  #center form {
+    background-color: rgb(35, 38, 29, 0.7);
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.3vw;
+    color: white;
+    font-size: 1.9vh;
+    padding: 0.7% 0.7%;
+    margin-top: 1% ;
+    margin-bottom: 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+    line-height: 200%;
+    text-align: center;
+    font-family:"Segoe UI";
+  }
+  .input {
+    margin-right: 1%;
+    border: none;
+border-radius: 4px;
+background-color: #f1f1f1;
+  }
+  .inputtitle {
+    width: 50%;
+    border: none;
+border-radius: 4px;
+padding: 12px 10px;
+background-color: #f1f1f1;
+  }
+
+#center textarea {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  }
+#center select {
+    margin-right: 1%;
+    border: none;
+border-radius: 4px;
+background-color: #f1f1f1;
+    }
+
+
+#center .inputsubmit {
+      width: 10%;
+      height:25px;;
+      border: #23261D;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    }
+
+
+
+
+
+.linkstyle {
+    border: #23261D;
+    color: white;
+    font-size: 1.9vh;
+    font-family:"Segoe UI";
+    font-weight: bold;
+  }
+
+
+
+
+
+    /* Footer */
+
+  #footer {
+		grid-area: footer;
+    margin-right: 2%;
+    margin-left: 3.3%;
+  }
+
+  #footer hr {
+    color: rgb(35, 38, 29, 0.7);
+    border: #23261D;
+    border-style: solid;
+    border-width: 0.17vw;
+  }
+
+  #footer p {
+    color: rgb(35, 38, 29, 0.7);
+    padding: 0.7% 0.7%;
+    margin-top: 1% ;
+    margin-bottom: 1%;
+    margin-right: 1%;
+    margin-left: 1%;
+    text-align: left;
+    font-family:"Segoe UI";
+    font-size: 1.9vh;
+    text-align: center;
+  }
